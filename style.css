@@ -1,0 +1,187 @@
+body{
+    max-width:1000px;
+    margin: 0px auto;
+    padding: 20px;
+}
+.navbar{
+   
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: orange;
+    height:70px;
+    align-items: center;
+    border-radius: 5px;
+}
+.comp-name{
+    width:20%;
+}
+.comp-name h2{
+    font-size: 30px;
+    color:rgb(230, 230, 230);
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar .cart{
+    width:100%;
+    width:40px;
+    position: relative;
+    width:50px;
+}
+.cart img{
+    width:100%;
+    
+}
+.cart h3{
+    position: absolute;
+    top:0;
+    color:white;
+    right:0px;
+    top:20px;
+    right:10px;
+    background: red;
+    height:20px;
+    width:20px;
+    text-align: center;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    font-size: 15px;
+    
+}
+
+main{
+    display: flex;
+    gap:10px;
+    
+    margin-top: 20px;
+  
+}
+.cart-product{
+    width: 60%;
+    background-color: lightgray;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   border-radius: 5px;
+   min-height: 400px;
+   
+   justify-content: center;
+   
+}
+ .ordered{
+    background-color: rgb(194, 191, 191);
+    width: 40%;
+    border-radius: 5px;
+    min-height: 400px;
+    position: relative;
+   
+    
+ }
+ .ordered .display{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:10px;
+    padding: 10px;
+ }
+ 
+ .display img{
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+ 
+    
+ }
+ .display h3{
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+ }
+
+ .ordered .total{
+    border-top:2px solid rgb(58, 57, 57);
+    position:absolute;
+    width:70%;
+    margin-left: 60px ;
+    text-align: center;
+    bottom: 0;
+    display: flex;
+    gap:10px;
+    justify-content: center;
+
+ }
+ .total h3{
+    color: rgb(37, 37, 37);
+    
+ }
+
+.box{
+    background-color: white;
+    margin: 20px;
+    border: 2px solid rgb(121, 23, 23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px 1px rgb(121, 23, 23);
+}
+.box .img{
+    width:80%;
+    object-fit: cover;
+}
+.box .btn-buy{
+    background-color: rgb(214, 144, 14);
+    box-shadow: 0px 1px 5px 1px rgb(214, 144, 14);
+    width:80%;
+    border: none;
+    border-radius: 5px;
+    padding:10px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.btn-remove{
+    background-color: brown;
+    height:40px;
+    color:white;
+    border:none;
+    border-radius: 5px;
+}
+
+.btn-buy:hover{
+    box-shadow: 0px 1px 5px 1px rgb(121, 23, 23) ;
+    background-color: rgb(121, 23, 23) ;
+
+    
+}
+.box h3{
+    font-size: 20;
+    font-weight: bolder;
+     
+}
+.box p{
+    font-size: 20px;
+    font-weight: bolder;
+     color: rgb(121, 23, 23);
+}
+
+
+ /* MEDIA QUERY */
+
+ @media (max-width:768px) {
+    
+    main{
+        flex-direction: column;
+    }
+    .cart-product{
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+     .ordered{
+       width: 100%;
+     }
+ }
+
+ 
