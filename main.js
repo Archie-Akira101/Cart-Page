@@ -1,102 +1,76 @@
-  let countEl = document.getElementById('count');
-  const  displayOrder = document.getElementById('ordered-cart');
-  const displayProduct = document.getElementById('product');
-  let totalEl = document.getElementById('total-item')
- 
- 
-  let total = 0;
-  let count = 0; 
+//Task 1
+//Iterating with Async/Await: Write an async function iterateWithAsyncAwait that takes an array of values and logs each value with a delay of 1 second between logs.
 
-  const products = [
+const iterateWithAsyncAwait = async (array) => {
+    for (value of array) {
+        console.log(value);
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
+    }
+}
 
-    {
-        id: 1,
-        name: "Iphone 13",
-        image: "https://slot.ng/media/catalog/product/cache/68bbe6a30464c40a236033bd86dd13a8/i/p/iphone_15_pro_2_1_3.png",
-        price: "$100",
-    },
-    {
-        id: 2,
-        name: "Iphone 12",
-        image: "https://slot.ng/media/catalog/product/cache/68bbe6a30464c40a236033bd86dd13a8/i/p/iphone_15_pro_2_1_3.png",
-        price: "$5,000",
-    },
-    {
-        id: 3,
-        name: "Iphone 11",
-        image: "https://slot.ng/media/catalog/product/cache/68bbe6a30464c40a236033bd86dd13a8/i/p/iphone_15_pro_2_1_3.png",
-        price: "$7,000",
-    },
-    {
-        id: 4,
-        name: "Samsung S22",
-        image: "https://i5.walmartimages.com/seo/Samsung-S22-Plus-5G-256GB-Factory-Unlocked-Pink-Gold-Cellphone_11f17e03-ff8b-4028-b055-9cbed086d70a.cfe7b3592fbd6cc9c5449c0630ced326.jpeg",
-        price: "$5,500",
-    },
-    {
-        id: 5,
-        name: "Iphone 15",
-        image: "https://slot.ng/media/catalog/product/cache/68bbe6a30464c40a236033bd86dd13a8/i/p/iphone_15_pro_2_1_3.png",
-        price: "$4,000",
-    },
-    {
-        id: 6,
-        name: "IPHONE 15 PROMAX",
-        image: "https://images.macrumors.com/t/OGS-wMpuHXbX6VkpJd6urJH1rEg=/1600x0/article-new/2023/09/iphone-15-pro-gray.jpg",
-        price: "$800",
-    },
-
-  ]
-
-  const productView = products.map((product) =>{
-
-     let divPro = document.createElement('div')
-     divPro.setAttribute('class', 'box')
-     
-     divPro.innerHTML = `<img src = ${product.image} class ="img">
-                          <h3>${product.name}</h3>
-                           <p>${product.price}</p>
-                           <button class="btn-buy" id="order-btn">ORDER</button>`
-
-                           displayProduct.appendChild(divPro)
-
-                     
-
-  })
-
-  
-    const orderBtn = document.querySelectorAll('.btn-buy')
-    orderBtn.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-            let product = e.target.parentElement
-            let productImage = product.querySelector('img').src
-            let productName = product.querySelector('h3').textContent
-            let productPrice = product.querySelector('p').textContent
-
-            let divOrder = document.createElement('div')
-            divOrder.setAttribute('class', 'display')
-            divOrder.innerHTML = `<img src = ${productImage} class ="img">
-                                  <h3>${productName}</h3>
-                                  <p>${productPrice}</p>
-                                  <button class="btn-remove
-                                  ">REMOVE</button>`
-
-                                  let removeBtn = divOrder.querySelector('.btn-remove')
-                                    removeBtn.addEventListener('click', () => {
-                                        divOrder.remove()
-                                        count--
-                                        countEl.textContent = count
-                                        total -= parseInt(productPrice.replace('$', '').replace(',', ''))
-                                        totalEl.textContent = total
-                                    })
-
-            displayOrder.appendChild(divOrder)
-            count++
-            countEl.textContent = count
-            total += parseInt(productPrice.replace('$', '').replace(',', ''))
-            totalEl.textContent = `$${total}`
-        })
-    })
+// Example usage:
+iterateWithAsyncAwait([1, 2, 3, 4, 5]);
 
 
-  
+
+
+
+
+/******************************/
+//Task 2
+//Awaiting a Call: Create an async function awaitCall that simulates fetching data from an API. Use await to wait for the API response and then log the data.
+
+//create awaitCall function
+const awaitCall = async () => {
+    // Fetch data from API
+    try {
+        const data = await fetchDataFromAPI();
+        console.log(data);
+    } catch (error) {
+        console.error("Failed to fetch data:", error.message);
+    }
+}
+
+//create fetchDataFromAPI function
+const fetchDataFromAPI = async () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // Simulate successful response
+            // resolve("Data from API");
+            // Simulate error response
+            reject(new Error("API request failed"));
+        }, 1000);
+    });
+}
+
+// Example usage:
+awaitCall();
+
+
+
+
+//Task 3
+//Handling Errors with Async/Await: Modify the awaitCall function to handle errors gracefully. If the API call fails, catch the error and log a user-friendly error message.
+const chainedAsyncFunctions = async () => {
+    await asyncFunction1();
+    await asyncFunction2();
+    await asyncFunction3();
+}
+
+const asyncFunction1 = async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Async function 1 completed");
+}
+
+const asyncFunction2 = async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Async function 2 completed");
+}
+
+const asyncFunction3 = async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Async function 3 completed");
+}
+
+// Example usage:
+chainedAsyncFunctions();
